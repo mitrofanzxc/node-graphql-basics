@@ -1,6 +1,10 @@
-import type { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
-import { createGqlResponseSchema, gqlResponseSchema } from './schemas.js';
-import { graphql, GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
+import { FastifyPluginAsyncTypebox } from '@fastify/type-provider-typebox';
+import { createGqlResponseSchema, gqlResponseSchema, RootSchema } from './schemas.js';
+import { graphql, parse, validate } from 'graphql';
+import depthLimit from 'graphql-depth-limit';
+import { getDataLoaders } from './data-loaders/getDataLoaders.js';
+
+const MAX_DEPTH = 5;
 
 const plugin: FastifyPluginAsyncTypebox = async (fastify) => {
   const { prisma } = fastify;
@@ -15,27 +19,26 @@ const plugin: FastifyPluginAsyncTypebox = async (fastify) => {
       },
     },
     async handler(req) {
-      return graphql({
-        schema,
-        source: req.body.query,
-        variableValues: req.body.variables,
+      const { query, variables } = req.body;
+      const documentAST = parse(query);
+      const validationResults = validate(RootSchema, documentAST, [
+        depthLimit(MAX_DEPTH),
+      ]);
+
+      if (validationResults.length) {
+        return { errors: validationResults };
+      }
+
+      const dataLoaders = getDataLoaders(prisma);
+
+      return await graphql({
+        schema: RootSchema,
+        source: query,
+        variableValues: variables,
+        contextValue: { prisma, dataLoaders },
       });
     },
   });
 };
-
-const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQuery',
-    fields: {
-      testString: {
-        type: GraphQLString,
-        resolve: async () => {
-          return 'Hello World';
-        },
-      },
-    },
-  }),
-});
 
 export default plugin;
