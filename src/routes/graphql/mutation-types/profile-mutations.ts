@@ -35,7 +35,7 @@ export const deleteProfileMutation = {
 
       return 'Profile deleted successfully';
     } catch (error) {
-      return `Could not delete profile, possibly it doesn't exist.`;
+      return "Could not delete profile, possibly it doesn't exist.";
     }
   },
 };

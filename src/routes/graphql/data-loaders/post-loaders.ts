@@ -13,7 +13,11 @@ export const getPostByIdLoader = (prisma: PrismaClient) =>
 export const getPostsByAuthorIdLoader = (prisma: PrismaClient) =>
   new DataLoader(async (authorIds: ReadonlyArray<Post['authorId']>) => {
     const posts = await prisma.post.findMany({
-      where: { authorId: { in: [...authorIds] } },
+      where: {
+        authorId: {
+          in: [...authorIds],
+        },
+      },
     });
 
     const authorIdToPostsObject: Record<Post['authorId'], Post[]> = posts.reduce(

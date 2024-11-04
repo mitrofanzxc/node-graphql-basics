@@ -35,7 +35,7 @@ export const deletePostMutation = {
 
       return 'Post deleted successfully';
     } catch (error) {
-      return `Could not delete post, possibly it doesn't exist.`;
+      return "Could not delete post, possibly it doesn't exist.";
     }
   },
 };

@@ -1,4 +1,4 @@
 import { GraphQLList, GraphQLNonNull, GraphQLNullableType } from 'graphql';
 
-export const NonNullListOfNonNull = <T extends GraphQLNullableType>(type: T) =>
+export const NonNullListOfNonNull = <Type extends GraphQLNullableType>(type: Type) =>
   new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(type)));

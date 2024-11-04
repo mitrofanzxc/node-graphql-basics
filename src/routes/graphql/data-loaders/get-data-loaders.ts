@@ -8,15 +8,13 @@ import {
 } from './subscribe-loaders.js';
 import { getUserByIdLoader } from './user-loaders.js';
 
-export const getDataLoaders = (prisma: PrismaClient) => {
-  return {
-    memberTypeById: getMemberTypeByIdLoader(prisma),
-    profileById: getProfileByIdLoader(prisma),
-    profileByUserId: getProfileByUserIdLoader(prisma),
-    postById: getPostByIdLoader(prisma),
-    postsByAuthorId: getPostsByAuthorIdLoader(prisma),
-    userById: getUserByIdLoader(prisma),
-    userSubscribedToById: getUserSubscribedToByIdLoader(prisma),
-    subscribeToUserById: getSubscribedToUserByIdLoader(prisma),
-  };
-};
+export const getDataLoaders = (prisma: PrismaClient) => ({
+  memberTypeById: getMemberTypeByIdLoader(prisma),
+  profileById: getProfileByIdLoader(prisma),
+  profileByUserId: getProfileByUserIdLoader(prisma),
+  postById: getPostByIdLoader(prisma),
+  postsByAuthorId: getPostsByAuthorIdLoader(prisma),
+  userById: getUserByIdLoader(prisma),
+  userSubscribedToById: getUserSubscribedToByIdLoader(prisma),
+  subscribeToUserById: getSubscribedToUserByIdLoader(prisma),
+});

@@ -4,8 +4,18 @@ import DataLoader from 'dataloader';
 export const getUserSubscribedToByIdLoader = (prisma: PrismaClient) =>
   new DataLoader(async (ids: ReadonlyArray<User['id']>) => {
     const usersWithAuthors = await prisma.user.findMany({
-      where: { id: { in: [...ids] } },
-      include: { userSubscribedTo: { select: { author: true } } },
+      where: {
+        id: {
+          in: [...ids],
+        },
+      },
+      include: {
+        userSubscribedTo: {
+          select: {
+            author: true,
+          },
+        },
+      },
     });
 
     const userIdToAuthorsObject = usersWithAuthors.reduce<Record<User['id'], User[]>>(
