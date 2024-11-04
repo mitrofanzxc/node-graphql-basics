@@ -56,7 +56,9 @@ export const usersQuery = {
 export const userQuery = {
   type: User,
   args: {
-    id: { type: new GraphQLNonNull(UUIDType) },
+    id: {
+      type: new GraphQLNonNull(UUIDType),
+    },
   },
   resolve: async (_, args: { id: string }, context: Context) =>
     await context.dataLoaders.userById.load(args.id),

@@ -24,5 +24,7 @@ export const enum Message {
   SUBSCRIBE_SUCCESS = 'Subscribed successfully',
   SUBSCRIBE_FAIL = 'Could not subscribe',
   UNSUBSCRIBE_SUCCESS = 'Unsubscribed successfully',
+  UNSUBSCRIBE_FAIL = 'Could not unsubscribe',
   USER_DELETE_SUCCESS = 'User deleted successfully',
+  INVALID_UUID = 'Invalid UUID.',
 }

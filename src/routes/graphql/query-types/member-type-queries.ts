@@ -13,7 +13,9 @@ export const memberTypesQuery = {
 export const memberTypeQuery = {
   type: MemberType,
   args: {
-    id: { type: new GraphQLNonNull(MemberTypeIdType) },
+    id: {
+      type: new GraphQLNonNull(MemberTypeIdType),
+    },
   },
   resolve: async (_, args: { id: MemberTypeId }, context: Context) =>
     await context.dataLoaders.memberTypeById.load(args.id),

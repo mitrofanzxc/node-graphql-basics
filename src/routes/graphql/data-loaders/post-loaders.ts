@@ -4,7 +4,11 @@ import DataLoader from 'dataloader';
 export const getPostByIdLoader = (prisma: PrismaClient) =>
   new DataLoader(async (ids: ReadonlyArray<Post['id']>) => {
     const posts = await prisma.post.findMany({
-      where: { id: { in: [...ids] } },
+      where: {
+        id: {
+          in: [...ids],
+        },
+      },
     });
 
     return ids.map((id) => posts.find((post) => id === post.id));

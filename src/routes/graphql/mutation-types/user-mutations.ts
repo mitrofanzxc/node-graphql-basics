@@ -4,6 +4,7 @@ import type { Context } from '../basic-types/context.js';
 import { ChangeUserInput, CreateUserInput } from '../input-types/user-inputs.js';
 import { ChangeUserDto, CreateUserDto } from '../basic-types/dto.js';
 import { UUIDType } from '../basic-types/uuid.js';
+import { Message } from '../constants.js';
 
 export const createUserMutation = {
   type: new GraphQLNonNull(User),
@@ -27,15 +28,21 @@ export const changeUserMutation = {
 export const deleteUserMutation = {
   type: GraphQLString,
   args: {
-    id: { type: new GraphQLNonNull(UUIDType) },
+    id: {
+      type: new GraphQLNonNull(UUIDType),
+    },
   },
   resolve: async (_, args: { id: string }, context: Context) => {
     try {
-      await context.prisma.user.delete({ where: { id: args.id } });
+      await context.prisma.user.delete({
+        where: {
+          id: args.id,
+        },
+      });
 
-      return 'User deleted successfully';
+      return Message.USER_DELETE_SUCCESS;
     } catch (error) {
-      return "Could not delete user, possibly it doesn't exist";
+      return Message.USER_DELETE_FAIL;
     }
   },
 };

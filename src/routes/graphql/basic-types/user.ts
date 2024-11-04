@@ -9,9 +9,15 @@ import { NameType } from '../constants.js';
 export const User: GraphQLObjectType = new GraphQLObjectType({
   name: NameType.USER,
   fields: () => ({
-    id: { type: new GraphQLNonNull(UUIDType) },
-    name: { type: new GraphQLNonNull(GraphQLString) },
-    balance: { type: new GraphQLNonNull(GraphQLFloat) },
+    id: {
+      type: new GraphQLNonNull(UUIDType),
+    },
+    name: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    balance: {
+      type: new GraphQLNonNull(GraphQLFloat),
+    },
     profile: {
       type: Profile,
       resolve: async (user: { id: string }, _args, context: Context) =>

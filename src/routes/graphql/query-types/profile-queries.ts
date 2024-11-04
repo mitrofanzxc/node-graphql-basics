@@ -12,7 +12,9 @@ export const profilesQuery = {
 export const profileQuery = {
   type: Profile,
   args: {
-    id: { type: new GraphQLNonNull(UUIDType) },
+    id: {
+      type: new GraphQLNonNull(UUIDType),
+    },
   },
   resolve: async (_, args: { id: string }, context: Context) =>
     await context.dataLoaders.profileById.load(args.id),

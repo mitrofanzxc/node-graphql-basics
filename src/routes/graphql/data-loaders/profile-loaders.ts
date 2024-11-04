@@ -17,7 +17,11 @@ export const getProfileByIdLoader = (prisma: PrismaClient) =>
 export const getProfileByUserIdLoader = (prisma: PrismaClient) =>
   new DataLoader(async (userIds: ReadonlyArray<Profile['userId']>) => {
     const profiles = await prisma.profile.findMany({
-      where: { userId: { in: [...userIds] } },
+      where: {
+        userId: {
+          in: [...userIds],
+        },
+      },
     });
 
     return userIds.map((userId) => profiles.find((profile) => userId === profile.userId));
