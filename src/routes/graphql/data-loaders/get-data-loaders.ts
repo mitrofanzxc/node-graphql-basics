@@ -1,9 +1,12 @@
-import { PrismaClient } from "@prisma/client";
-import { getProfileByIdLoader, getProfileByUserIdLoader } from "./profileLoaders.js";
-import { getMemberTypeByIdLoader } from "./memberTypeLoaders.js";
-import { getPostByIdLoader, getPostsByAuthorIdLoader } from "./postLoaders.js";
-import { getSubscribedToUserByIdLoader, getUserSubscribedToByIdLoader } from "./subscribeLoaders.js";
-import { getUserByIdLoader } from "./userLoaders.js";
+import { PrismaClient } from '@prisma/client';
+import { getProfileByIdLoader, getProfileByUserIdLoader } from './profile-loaders.js';
+import { getMemberTypeByIdLoader } from './member-type-loaders.js';
+import { getPostByIdLoader, getPostsByAuthorIdLoader } from './post-loaders.js';
+import {
+  getSubscribedToUserByIdLoader,
+  getUserSubscribedToByIdLoader,
+} from './subscribe-loaders.js';
+import { getUserByIdLoader } from './user-loaders.js';
 
 export const getDataLoaders = (prisma: PrismaClient) => {
   return {

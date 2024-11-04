@@ -1,27 +1,27 @@
 import { GraphQLObjectType } from 'graphql';
-import { memberTypeQuery, memberTypesQuery } from '../query-types/memberTypeQueries.js';
-import { postQuery, postsQuery } from '../query-types/postQueries.js';
-import { profileQuery, profilesQuery } from '../query-types/profileQueries.js';
-import { userQuery, usersQuery } from '../query-types/userQueries.js';
+import { memberTypeQuery, memberTypesQuery } from '../query-types/member-type-queries.js';
+import { postQuery, postsQuery } from '../query-types/post-queries.js';
+import { profileQuery, profilesQuery } from '../query-types/profile-queries.js';
+import { userQuery, usersQuery } from '../query-types/user-queries.js';
 import {
   changeUserMutation,
   createUserMutation,
   deleteUserMutation,
-} from '../mutation-types/userMutations.js';
+} from '../mutation-types/user-mutations.js';
 import {
   changePostMutation,
   createPostMutation,
   deletePostMutation,
-} from '../mutation-types/postMutations.js';
+} from '../mutation-types/post-mutations.js';
 import {
   changeProfileMutation,
   createProfileMutation,
   deleteProfileMutation,
-} from '../mutation-types/profileMutations.js';
+} from '../mutation-types/profile-mutations.js';
 import {
   subscribeToMutation,
   unsubscribeFromMutation,
-} from '../mutation-types/subscribeMutations.js';
+} from '../mutation-types/subscribe-mutations.js';
 
 export const rootQueryType = new GraphQLObjectType({
   name: 'Query',

@@ -1,7 +1,7 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { User } from '../basic-types/user.js';
 import { Context } from '../basic-types/context.js';
-import { ChangeUserInput, CreateUserInput } from '../input-types/userInputs.js';
+import { ChangeUserInput, CreateUserInput } from '../input-types/user-inputs.js';
 import { ChangeUserDto, CreateUserDto } from '../basic-types/dto.js';
 import { UUIDType } from '../basic-types/uuid.js';
 

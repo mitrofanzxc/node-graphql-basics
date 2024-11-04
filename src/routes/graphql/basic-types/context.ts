@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import { getDataLoaders } from "../data-loaders/getDataLoaders.js";
+import { PrismaClient } from '@prisma/client';
+import { getDataLoaders } from '../data-loaders/get-data-loaders.js';
 
 export interface Context {
   prisma: PrismaClient;

@@ -1,7 +1,7 @@
 import { GraphQLNonNull, GraphQLResolveInfo } from 'graphql';
 import { Context } from '../basic-types/context.js';
 import { UUIDType } from '../basic-types/uuid.js';
-import { NonNullListOfNonNull } from '../basic-types/nonNull.js';
+import { NonNullListOfNonNull } from '../basic-types/non-null.js';
 import { User } from '../basic-types/user.js';
 import { parseResolveInfo, ResolveTree, simplify } from 'graphql-parse-resolve-info';
 import { User as PrismaUser } from '@prisma/client';

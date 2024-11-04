@@ -1,6 +1,6 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { Profile } from '../basic-types/profile.js';
-import { ChangeProfileInput, CreateProfileInput } from '../input-types/profileInputs.js';
+import { ChangeProfileInput, CreateProfileInput } from '../input-types/profile-inputs.js';
 import { Context } from '../basic-types/context.js';
 import { ChangeProfileDto, CreateProfileDto } from '../basic-types/dto.js';
 import { UUIDType } from '../basic-types/uuid.js';

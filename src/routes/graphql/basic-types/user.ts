@@ -2,7 +2,7 @@ import { GraphQLFloat, GraphQLNonNull, GraphQLObjectType, GraphQLString } from '
 import { UUIDType } from './uuid.js';
 import { Post } from './post.js';
 import { Profile } from './profile.js';
-import { NonNullListOfNonNull } from './nonNull.js';
+import { NonNullListOfNonNull } from './non-null.js';
 import { Context } from './context.js';
 
 export const User: GraphQLObjectType = new GraphQLObjectType({

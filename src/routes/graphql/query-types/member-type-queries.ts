@@ -1,8 +1,8 @@
 import { GraphQLNonNull } from 'graphql';
-import { MemberTypeIdType, MemberType } from '../basic-types/memberType.js';
+import { MemberTypeIdType, MemberType } from '../basic-types/member-type.js';
 import { Context } from '../basic-types/context.js';
 import { MemberTypeId } from '../../member-types/schemas.js';
-import { NonNullListOfNonNull } from '../basic-types/nonNull.js';
+import { NonNullListOfNonNull } from '../basic-types/non-null.js';
 
 export const memberTypesQuery = {
   type: NonNullListOfNonNull(MemberType),

@@ -2,7 +2,7 @@ import { GraphQLNonNull } from 'graphql';
 import { Post } from '../basic-types/post.js';
 import { Context } from '../basic-types/context.js';
 import { UUIDType } from '../basic-types/uuid.js';
-import { NonNullListOfNonNull } from '../basic-types/nonNull.js';
+import { NonNullListOfNonNull } from '../basic-types/non-null.js';
 
 export const postsQuery = {
   type: NonNullListOfNonNull(Post),
