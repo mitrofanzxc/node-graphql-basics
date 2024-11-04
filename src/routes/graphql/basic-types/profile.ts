@@ -1,10 +1,11 @@
 import { GraphQLBoolean, GraphQLInt, GraphQLNonNull, GraphQLObjectType } from 'graphql';
 import { UUIDType } from './uuid.js';
 import { MemberType } from './member-type.js';
-import { Context } from './context.js';
+import type { Context } from './context.js';
+import { NameType } from '../constants.js';
 
 export const Profile = new GraphQLObjectType({
-  name: 'Profile',
+  name: NameType.PROFILE,
   fields: {
     id: { type: new GraphQLNonNull(UUIDType) },
     isMale: { type: new GraphQLNonNull(GraphQLBoolean) },

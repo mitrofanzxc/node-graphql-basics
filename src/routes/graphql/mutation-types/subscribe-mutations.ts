@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
-import { Context } from '../basic-types/context.js';
+import type { Context } from '../basic-types/context.js';
 import { UUIDType } from '../basic-types/uuid.js';
 
 export const subscribeToMutation = {

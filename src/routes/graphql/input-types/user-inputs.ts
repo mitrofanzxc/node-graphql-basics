@@ -4,9 +4,10 @@ import {
   GraphQLNonNull,
   GraphQLString,
 } from 'graphql';
+import { NameType } from '../constants.js';
 
 export const CreateUserInput = new GraphQLInputObjectType({
-  name: 'CreateUserInput',
+  name: NameType.CREATE_USER_INPUT,
   fields: {
     name: { type: new GraphQLNonNull(GraphQLString) },
     balance: { type: new GraphQLNonNull(GraphQLFloat) },
@@ -14,7 +15,7 @@ export const CreateUserInput = new GraphQLInputObjectType({
 });
 
 export const ChangeUserInput = new GraphQLInputObjectType({
-  name: 'ChangeUserInput',
+  name: NameType.CHANGE_USER_INPUT,
   fields: {
     name: { type: GraphQLString },
     balance: { type: GraphQLFloat },

@@ -1,9 +1,10 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { ChangePostInput, CreatePostInput } from '../input-types/post-inputs.js';
 import { Post } from '../basic-types/post.js';
-import { Context } from '../basic-types/context.js';
+import type { Context } from '../basic-types/context.js';
 import { ChangePostDto, CreatePostDto } from '../basic-types/dto.js';
 import { UUIDType } from '../basic-types/uuid.js';
+import { Message } from '../constants.js';
 
 export const createPostMutation = {
   type: new GraphQLNonNull(Post),
@@ -33,9 +34,9 @@ export const deletePostMutation = {
     try {
       await context.prisma.post.delete({ where: { id: args.id } });
 
-      return 'Post deleted successfully';
-    } catch (error) {
-      return "Could not delete post, possibly it doesn't exist.";
+      return Message.POST_DELETE_SUCCESS;
+    } catch {
+      return Message.POST_DELETE_FAIL;
     }
   },
 };

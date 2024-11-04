@@ -1,6 +1,6 @@
 import { GraphQLNonNull } from 'graphql';
 import { MemberTypeIdType, MemberType } from '../basic-types/member-type.js';
-import { Context } from '../basic-types/context.js';
+import type { Context } from '../basic-types/context.js';
 import { MemberTypeId } from '../../member-types/schemas.js';
 import { NonNullListOfNonNull } from '../basic-types/non-null.js';
 

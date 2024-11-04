@@ -1,5 +1,5 @@
 import { GraphQLNonNull } from 'graphql';
-import { Context } from '../basic-types/context.js';
+import type { Context } from '../basic-types/context.js';
 import { UUIDType } from '../basic-types/uuid.js';
 import { NonNullListOfNonNull } from '../basic-types/non-null.js';
 import { Profile } from '../basic-types/profile.js';

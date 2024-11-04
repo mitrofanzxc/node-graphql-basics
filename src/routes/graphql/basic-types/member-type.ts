@@ -6,9 +6,10 @@ import {
   GraphQLObjectType,
 } from 'graphql';
 import { MemberTypeId } from '../../member-types/schemas.js';
+import { NameType } from '../constants.js';
 
 export const MemberTypeIdType = new GraphQLEnumType({
-  name: 'MemberTypeId',
+  name: NameType.MEMBER_TYPE_ID,
   values: Object.keys(MemberTypeId).reduce(
     (values, key) => {
       values[key] = { value: MemberTypeId[key as keyof typeof MemberTypeId] };
@@ -19,7 +20,7 @@ export const MemberTypeIdType = new GraphQLEnumType({
 });
 
 export const MemberType = new GraphQLObjectType({
-  name: 'MemberType',
+  name: NameType.MEMBER_TYPE,
   fields: {
     id: { type: new GraphQLNonNull(MemberTypeIdType) },
     discount: { type: new GraphQLNonNull(GraphQLFloat) },

@@ -1,7 +1,7 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { Profile } from '../basic-types/profile.js';
 import { ChangeProfileInput, CreateProfileInput } from '../input-types/profile-inputs.js';
-import { Context } from '../basic-types/context.js';
+import type { Context } from '../basic-types/context.js';
 import { ChangeProfileDto, CreateProfileDto } from '../basic-types/dto.js';
 import { UUIDType } from '../basic-types/uuid.js';
 
@@ -34,7 +34,7 @@ export const deleteProfileMutation = {
       await context.prisma.profile.delete({ where: { id: args.id } });
 
       return 'Profile deleted successfully';
-    } catch (error) {
+    } catch {
       return "Could not delete profile, possibly it doesn't exist.";
     }
   },

@@ -3,10 +3,11 @@ import { UUIDType } from './uuid.js';
 import { Post } from './post.js';
 import { Profile } from './profile.js';
 import { NonNullListOfNonNull } from './non-null.js';
-import { Context } from './context.js';
+import type { Context } from './context.js';
+import { NameType } from '../constants.js';
 
 export const User: GraphQLObjectType = new GraphQLObjectType({
-  name: 'User',
+  name: NameType.USER,
   fields: () => ({
     id: { type: new GraphQLNonNull(UUIDType) },
     name: { type: new GraphQLNonNull(GraphQLString) },

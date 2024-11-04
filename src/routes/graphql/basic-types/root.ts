@@ -22,9 +22,10 @@ import {
   subscribeToMutation,
   unsubscribeFromMutation,
 } from '../mutation-types/subscribe-mutations.js';
+import { NameType } from '../constants.js';
 
 export const rootQueryType = new GraphQLObjectType({
-  name: 'Query',
+  name: NameType.QUERY,
   fields: {
     memberTypes: memberTypesQuery,
     memberType: memberTypeQuery,
@@ -38,7 +39,7 @@ export const rootQueryType = new GraphQLObjectType({
 });
 
 export const rootMutationType = new GraphQLObjectType({
-  name: 'Mutation',
+  name: NameType.MUTATION,
   fields: {
     createUser: createUserMutation,
     changeUser: changeUserMutation,
