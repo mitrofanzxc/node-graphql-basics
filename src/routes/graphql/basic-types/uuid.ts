@@ -1,4 +1,5 @@
 import { GraphQLScalarType, Kind } from 'graphql';
+import { Message, NameType } from '../constants.js';
 
 const isUUID = (value: unknown): value is string =>
   typeof value === 'string' &&
@@ -7,17 +8,19 @@ const isUUID = (value: unknown): value is string =>
   );
 
 export const UUIDType = new GraphQLScalarType({
-  name: 'UUID',
+  name: NameType.UUID,
   serialize(value) {
     if (!isUUID(value)) {
-      throw new TypeError(`Invalid UUID.`);
+      throw new TypeError(Message.INVALID_UUID);
     }
+
     return value;
   },
   parseValue(value) {
     if (!isUUID(value)) {
-      throw new TypeError(`Invalid UUID.`);
+      throw new TypeError(Message.INVALID_UUID);
     }
+
     return value;
   },
   parseLiteral(ast) {
@@ -26,6 +29,7 @@ export const UUIDType = new GraphQLScalarType({
         return ast.value;
       }
     }
+
     return undefined;
   },
 });
